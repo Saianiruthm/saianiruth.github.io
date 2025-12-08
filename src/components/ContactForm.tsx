@@ -14,23 +14,14 @@ export function ContactForm() {
     setIsSubmitting(true)
     
     const formData = new FormData(e.currentTarget)
-    const data = Object.fromEntries(formData)
     
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('https://formsubmit.co/69fd51f33313c80c756da805357ff7c2', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          access_key: import.meta.env.VITE_WEB3FORMS_KEY || 'YOUR_WEB3FORMS_ACCESS_KEY',
-          ...data
-        })
+        body: formData
       })
       
-      const result = await response.json()
-      
-      if (result.success) {
+      if (response.ok) {
         toast.success('Message sent successfully! I\'ll get back to you soon.')
         ;(e.target as HTMLFormElement).reset()
       } else {
@@ -90,6 +81,10 @@ export function ContactForm() {
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">
+                <input type="hidden" name="_subject" value="New message from portfolio website" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <Input
