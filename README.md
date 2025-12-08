@@ -34,7 +34,7 @@ Built with modern web technologies:
 ## 📁 Project Structure
 
 ```
-shadcn-ui/
+master/
 ├── public/
 │   └── assets/          # Images and static assets
 ├── src/

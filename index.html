@@ -1,95 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Home</title>
-  <link rel="stylesheet" href="style.css">
-<link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
-      crossorigin="anonymous"
-    />
-<link
-      href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Basic Meta -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/favicon.png" type="image/png" />
+  <link rel="icon" href="/favicon.ico" />
+
+  <!-- Primary SEO Title -->
+  <title>SAIANIRUTH M — Software Engineer & AI Scientist</title>
+
+  <!-- Primary Meta Description -->
+  <meta name="description"
+        content="Portfolio of Saianiruth M — Software Engineer and AI Scientist specializing in Machine Learning, Deep Learning, Software Engineering, and Data Science." />
+
+  <!-- Keywords (not heavily used by Google but good for minor SEO) -->
+  <meta name="keywords"
+        content="Saianiruth M, AI Scientist, Software Engineer, Machine Learning, Deep Learning, Data Science, React Developer, Portfolio" />
+
+  <meta name="author" content="Saianiruth M" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://saianiruth.me" />
+
+  <!-- OpenGraph (Social Sharing) -->
+  <meta property="og:title" content="SAIANIRUTH M — Software Engineer & AI Scientist" />
+  <meta property="og:description"
+        content="Explore projects, experience, and work of Saianiruth M — specializing in AI, ML, and full-stack engineering." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://saianiruth.me" />
+  <meta property="og:image" content="https://saianiruth.me/og-image.png" />
+  <meta property="og:site_name" content="Saianiruth M Portfolio" />
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow" />
+
+
+  <!-- JSON-LD Structured Data: Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Saianiruth M",
+    "url": "https://saianiruth.me",
+    "jobTitle": "Software Engineer & AI Scientist",
+    "alumniOf": "Government College of Technology, Coimbatore",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "5C Network",
+      "url": "https://5cnetwork.com"
+    },
+    "sameAs": [
+      "https://github.com/saianiruthm",
+      "https://www.linkedin.com/in/saianiruth-m"
+    ]
+  }
+  </script>
+
 </head>
+
 <body>
-<!-- START NAV -->
+  <div id="root"></div>
 
-    <nav id="navbar" class="nav">
-      <ul class="nav-list">
-        <li>
-          <a href="../index">Homepage</a>
-        </li>
-        <li>
-          <a href="../About/about.html">About</a>
-        </li>
-        <li>
-          <a href="../Education/education.html">Education</a>
-        </li>
-<li>
-          <a href="../Experience/experience.html">Experience</a>
-        </li>
-<li>
-          <a href="../Projects/project.html">Projects</a>
-        </li>
-      </ul>
-    </nav>
-
-    <!-- END NAV -->
-
-  <!-- START WELCOME SECTION -->
-
-    <section id="welcome-section" class="welcome-section">
-            <h1>Hey I am Saianiruth Matura Pragash </h1>
-<p>An Undergraduate Electrical Engineer and a passionate programmer</p>
-    </section>
-
-    <!-- END WELCOME SECTION -->
-<!-- START CONTACT SECTION -->
-
-    <section id="contact" class="contact-section">
-      <div class="contact-section-header">
-        <h2>Let's work together...</h2>
-        <p>How do you take your coffee?</p>
-      </div>
-      <div class="contact-links">
-        <a
-          href="https://facebook.com/saianiruthmaturapragash"
-          target="_blank"
-          class="btn contact-details"
-          ><i class="fab fa-facebook-square"></i> Facebook </a
-        >
-        <a
-          id="profile-link"
-          href="https://github.com/Saianiruthm"
-          target="_blank"
-          class="btn contact-details"
-          ><i class="fab fa-github"></i> GitHub </a
-        >
-        <a
-          href="https://linkedin.com/in/saianiruth-m-6a397b256"
-          target="_blank"
-          class="btn contact-details"
-          ><i class="fab fa-linkedin"></i> LinkedIn </a
-        >
-        <a href="mailto:sai2804aniruth@gmail.com" class="btn contact-details"><i class="fas fa-at"></i> Send a mail  </a
-        >
-        <a href="tel:+91" class="btn contact-details"
-          ><i class="fas fa-mobile-alt"></i> Call me</a
-        >
-      </div>
-    </section>
-
-    <!-- END CONTACT SECTION -->
-
-  <footer>
-    <p>Copyright &copy; 2023 Saianiruth M</p>
-  </footer>
+  <!-- Main script for Vite + React -->
+  <script type="module" src="/src/main.tsx"></script>
 </body>
+
 </html>
