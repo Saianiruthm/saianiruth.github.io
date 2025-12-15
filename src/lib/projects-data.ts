@@ -59,13 +59,13 @@ interface Project {
         achievements: ["98.95% F1 (Subcutaneous Emphysema)", "98.38% F1 (Lung Collapse)", "95.73% F1 (Pleural Effusion)"]
       },
       {
-        title: "BPL Chest X-ray Pathology Detection",
+        title: "Chest X-ray Pathology Detection",
         description: "Specialized object detection models for Mass, Fibrosis, and Rib Fracture. Dedicated models for high-priority pathologies to maximize sensitivity.",
         technologies: ["RF-DETR Medium", "EfficientDet-D7x", "Object Detection"],
         achievements: ["100% precision (Mass)", "96.42% recall (Mass)", "97.75% F1 (Rib Fracture)"]
       },
       {
-        title: "Manipal Large-Scale CXR Models",
+        title: "Large-Scale Federated CXR Models",
         description: "Large-scale training on 120K chest X-ray images. Normal vs Abnormal classification and segmentation (Pleural Effusion, Consolidation) using diverse backbones.",
         technologies: ["BioViL", "Swin Transformer", "YOLOv11-Seg", "UNet", "Attention-UNet", "DenseNet121"],
         achievements: ["93.16% accuracy (hybrid model)", "97.21% F1 (Sternal Sutures)", "100% precision (Pleural Effusion)"]
@@ -111,13 +111,13 @@ interface Project {
     ],
     "Clinical Workflow Systems": [
       {
-        title: "BPL Knee X-ray Analysis System",
+        title: "Knee X-ray Analysis System",
         description: "Comprehensive knee X-ray analysis system generating structured medical reports. Modular pipeline with bone detection, view classification, and pathology detection.",
         technologies: ["DenseNet169", "YOLO", "Python", "FastAPI", "API Integration"],
         achievements: ["Osteoarthritis grading (0-4)", "Post-operative implant detection", "AP vs Lateral orientation"]
       },
       {
-        title: "BPL CXR Analysis System",
+        title: "CXR Analysis System",
         description: "Core orchestration and deployment infrastructure for chest X-ray analysis suite. Unified Model Registry with multi-model inference and report generation.",
         technologies: ["FastAPI", "Docker", "Docker Compose", "PyTorch", "Structlog", "YAML"],
         achievements: ["Dynamic model loading", "GPU support", "Production-ready containerization"]
@@ -135,8 +135,8 @@ interface Project {
         achievements: ["1.6M images indexed", "1024-dim embeddings", "Top-100 retrieval with synthesis"]
       },
       {
-        title: "ICU Suite – CXR Critical Care Module (RSNA 25 Web Showcase)",
-        description: "Comprehensive ICU-focused chest X-ray analysis system detecting critical pathologies and device malpositions. Includes live inference backend with FastAPI and interactive 3D web showcase for RSNA 25 conference demonstration.",
+        title: "ICU Suite – CXR Critical Care Module",
+        description: "Comprehensive ICU-focused chest X-ray analysis system detecting critical pathologies and device malpositions. Includes live inference backend with FastAPI and interactive 3D web showcase for conference demonstration.",
         technologies: ["PyTorch", "YOLOv8/YOLOv11", "EfficientDet", "RF-DETR", "FastAPI", "HTML5", "CSS3", "JavaScript", "Docker"],
         achievements: ["Multi-pathology detection (ICU conditions)", "Medical device malposition checks", "Structured JSON + clinical reports"],
         showcaseUrl: "https://icudemo.etiqueta.cubebase.ai/"
