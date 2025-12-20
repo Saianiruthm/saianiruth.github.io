@@ -107,11 +107,11 @@ export default function Portfolio() {
               SAIANIRUTH M
             </h1>
             <h2 className="text-2xl md:text-3xl font-semibold text-muted-foreground">
-              Software Engineer/ Data Scientist
+              AI Scientist
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Passionate about building intelligent systems that solve real-world problems through 
-              cutting-edge AI, machine learning, and robust software engineering practices.
+              cutting-edge AI, machine learning, and robust ML engineering practices.
             </p>
           </div>
           
@@ -170,7 +170,7 @@ export default function Portfolio() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground leading-relaxed">
-                      I'm a passionate <strong>AI Scientist and Software Engineer</strong> specializing in 
+                      I'm a passionate <strong>AI Scientist</strong> specializing in 
                       intelligent systems that bridge research and real-world applications. My focus is on 
                       <strong> machine learning, deep learning, and data science</strong> solutions that 
                       deliver measurable impact.
