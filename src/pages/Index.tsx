@@ -7,6 +7,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { ModeToggle } from '@/components/ui/mode-toggle'
 import { ContactForm } from '@/components/ContactForm'
 import { ProjectCard } from '@/components/ProjectCard'
+import { BackToTop } from '@/components/BackToTop'
 import { experienceData, educationData } from '@/lib/experience-data'
 import { professionalProjects, personalProjects } from '@/lib/projects-data'
 import { skillsData } from '@/lib/skills-data'
@@ -71,7 +72,7 @@ export default function Portfolio() {
           {/* Mobile Menu Toggle */}
           <div className="flex items-center gap-4 md:hidden">
             <ModeToggle />
-            <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Toggle mobile menu">
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
@@ -97,9 +98,10 @@ export default function Portfolio() {
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-secondary/10 pt-16">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-          style={{ backgroundImage: 'url(/assets/hero-abstract-ai.jpg)' }}
+        <img
+          src="/assets/hero-abstract-ai.jpg"
+          alt="Abstract AI background"
+          className="absolute inset-0 w-full h-full object-cover opacity-20"
         />
         <div className="relative z-10 text-center space-y-8 px-4 max-w-4xl mx-auto">
           <div className="space-y-4">
@@ -152,10 +154,14 @@ export default function Portfolio() {
             <div className="grid lg:grid-cols-3 gap-8">
               {/* Image Column */}
               <div className="lg:col-span-1">
-                <div 
-                  className="h-64 lg:h-full min-h-[300px] bg-cover bg-center rounded-lg shadow-lg"
-                  style={{ backgroundImage: 'url(/assets/data-science-workspace.jpg)' }}
-                />
+                <div className="h-64 lg:h-full min-h-[300px] relative rounded-lg shadow-lg overflow-hidden">
+                  <img
+                    src="/assets/data-science-workspace.jpg"
+                    alt="Data Science Workspace"
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
 
               {/* Content Column */}
@@ -246,9 +252,11 @@ export default function Portfolio() {
                   <CardTitle className="text-2xl">{experienceData.company}</CardTitle>
                   <CardDescription className="text-lg">{experienceData.location}</CardDescription>
                 </div>
-                <div 
-                  className="w-32 h-32 bg-contain bg-center bg-no-repeat rounded-lg"
-                  style={{ backgroundImage: 'url(/assets/5c-network.png)' }}
+                <img
+                  src="/assets/5c-network.png"
+                  alt="5C Network Logo"
+                  loading="lazy"
+                  className="w-32 h-32 object-contain rounded-lg"
                 />
               </div>
             </CardHeader>
@@ -439,9 +447,11 @@ export default function Portfolio() {
                   </CardDescription>
                 </div>
                 <div className="flex flex-col items-end gap-4">
-                  <div 
-                    className="w-24 h-24 bg-contain bg-center bg-no-repeat rounded-lg"
-                    style={{ backgroundImage: 'url(/assets/gct-coimbatore.png)' }}
+                  <img
+                    src="/assets/gct-coimbatore.png"
+                    alt="GCT Coimbatore Logo"
+                    loading="lazy"
+                    className="w-24 h-24 object-contain rounded-lg"
                   />
                   <Badge variant="secondary" className="text-base px-4 py-2">
                     GPA: {educationData.gpa}
@@ -509,6 +519,8 @@ export default function Portfolio() {
 
       {/* Contact Section */}
       <ContactForm />
+
+      <BackToTop />
 
       {/* Footer */}
       <footer className="py-8 bg-muted mt-auto border-t">

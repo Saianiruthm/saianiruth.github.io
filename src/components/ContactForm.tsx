@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { Label } from '@/components/ui/label'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Mail, MapPin, Send } from 'lucide-react'
 import { toast } from 'sonner'
@@ -86,16 +87,20 @@ export function ContactForm() {
                 <input type="hidden" name="_template" value="table" />
                 
                 <div className="grid grid-cols-2 gap-4">
-                  <div>
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Name</Label>
                     <Input
+                      id="name"
                       name="name"
                       placeholder="Your Name"
                       required
                       disabled={isSubmitting}
                     />
                   </div>
-                  <div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email</Label>
                     <Input
+                      id="email"
                       name="email"
                       type="email"
                       placeholder="Your Email"
@@ -105,20 +110,28 @@ export function ContactForm() {
                   </div>
                 </div>
                 
-                <Input
-                  name="subject"
-                  placeholder="Subject"
-                  required
-                  disabled={isSubmitting}
-                />
+                <div className="space-y-2">
+                  <Label htmlFor="subject">Subject</Label>
+                  <Input
+                    id="subject"
+                    name="subject"
+                    placeholder="Subject"
+                    required
+                    disabled={isSubmitting}
+                  />
+                </div>
                 
-                <Textarea
-                  name="message"
-                  placeholder="Your Message"
-                  rows={5}
-                  required
-                  disabled={isSubmitting}
-                />
+                <div className="space-y-2">
+                  <Label htmlFor="message">Message</Label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    placeholder="Your Message"
+                    rows={5}
+                    required
+                    disabled={isSubmitting}
+                  />
+                </div>
                 
                 <Button type="submit" className="w-full" disabled={isSubmitting}>
                   {isSubmitting ? (
