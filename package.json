@@ -4,7 +4,10 @@
   "packageManager": "pnpm@8.10.0",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "pnpm run build:client && pnpm run build:server && pnpm run prerender",
+    "build:client": "vite build --outDir dist/client",
+    "build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server",
+    "prerender": "node prerender.js",
     "lint": "eslint --quiet ./src",
     "preview": "vite preview"
   },
