@@ -13,6 +13,10 @@ import { professionalProjects, personalProjects } from '@/lib/projects-data'
 import { skillsData } from '@/lib/skills-data'
 import { Github, Linkedin, Mail, MapPin, Award, Briefcase, GraduationCap, Users, Code2, Cpu, Menu, X, BookOpen, Target, Lightbulb, Rocket } from 'lucide-react'
 
+// Pre-compute project entries outside component to avoid re-computation on render
+const professionalProjectsEntries = Object.entries(professionalProjects)
+const personalProjectsEntries = Object.entries(personalProjects)
+
 export default function Portfolio() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -41,10 +45,6 @@ export default function Portfolio() {
     { label: 'Education', id: 'education' },
     { label: 'Contact', id: 'contact' },
   ]
-
-  // Memoize project entries to prevent re-computation on every render
-  const professionalProjectsEntries = Object.entries(professionalProjects)
-  const personalProjectsEntries = Object.entries(personalProjects)
 
   return (
     <div className="min-h-screen bg-background">
