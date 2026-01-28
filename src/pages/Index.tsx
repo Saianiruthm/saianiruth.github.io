@@ -79,12 +79,12 @@ export default function Portfolio() {
                 {item.label}
               </button>
             ))}
-            <ModeToggle />
+            <ModeToggle className={isScrolled ? '' : 'text-white hover:bg-white/20 hover:text-white'} />
           </nav>
 
           {/* Mobile Menu Toggle */}
           <div className="flex items-center gap-4 md:hidden">
-            <ModeToggle />
+            <ModeToggle className={isScrolled ? '' : 'text-white hover:bg-white/20 hover:text-white'} />
             <Button
               variant="ghost"
               size="icon"
