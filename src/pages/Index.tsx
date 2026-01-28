@@ -57,7 +57,12 @@ export default function Portfolio() {
         }`}
       >
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="font-bold text-xl bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <div
+            className={`font-bold text-xl bg-gradient-to-r bg-clip-text text-transparent cursor-pointer ${
+              isScrolled ? 'from-primary to-primary/60' : 'from-white to-white/60'
+            }`}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
             SAIANIRUTH M
           </div>
 
@@ -67,7 +72,9 @@ export default function Portfolio() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-sm font-medium hover:text-primary transition-colors"
+                className={`text-sm font-medium transition-colors ${
+                  isScrolled ? 'text-foreground hover:text-primary' : 'text-white/90 hover:text-white'
+                }`}
               >
                 {item.label}
               </button>
@@ -78,7 +85,13 @@ export default function Portfolio() {
           {/* Mobile Menu Toggle */}
           <div className="flex items-center gap-4 md:hidden">
             <ModeToggle />
-            <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Toggle mobile menu">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle mobile menu"
+              className={isScrolled ? '' : 'text-white hover:bg-white/20 hover:text-white'}
+            >
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
