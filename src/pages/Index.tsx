@@ -32,7 +32,9 @@ export default function Portfolio() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      requestAnimationFrame(() => {
+        setIsScrolled(window.scrollY > 50)
+      })
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
