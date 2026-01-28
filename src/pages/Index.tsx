@@ -17,6 +17,15 @@ import { Github, Linkedin, Mail, MapPin, Award, Briefcase, GraduationCap, Users,
 const professionalProjectsEntries = Object.entries(professionalProjects)
 const personalProjectsEntries = Object.entries(personalProjects)
 
+const navItems = [
+  { label: 'About', id: 'about' },
+  { label: 'Experience', id: 'experience' },
+  { label: 'Skills', id: 'skills' },
+  { label: 'Projects', id: 'projects' },
+  { label: 'Education', id: 'education' },
+  { label: 'Contact', id: 'contact' },
+]
+
 export default function Portfolio() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -36,15 +45,6 @@ export default function Portfolio() {
       setIsMobileMenuOpen(false)
     }
   }
-
-  const navItems = [
-    { label: 'About', id: 'about' },
-    { label: 'Experience', id: 'experience' },
-    { label: 'Skills', id: 'skills' },
-    { label: 'Projects', id: 'projects' },
-    { label: 'Education', id: 'education' },
-    { label: 'Contact', id: 'contact' },
-  ]
 
   return (
     <div className="min-h-screen bg-background">
