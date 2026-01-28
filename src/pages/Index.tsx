@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -13,34 +13,40 @@ import { professionalProjects, personalProjects } from '@/lib/projects-data'
 import { skillsData } from '@/lib/skills-data'
 import { Github, Linkedin, Mail, MapPin, Award, Briefcase, GraduationCap, Users, Code2, Cpu, Menu, X, BookOpen, Target, Lightbulb, Rocket } from 'lucide-react'
 
+// Pre-compute project entries outside component to avoid re-computation on render
+const professionalProjectsEntries = Object.entries(professionalProjects)
+const personalProjectsEntries = Object.entries(personalProjects)
+
+const navItems = [
+  { label: 'About', id: 'about' },
+  { label: 'Experience', id: 'experience' },
+  { label: 'Skills', id: 'skills' },
+  { label: 'Projects', id: 'projects' },
+  { label: 'Education', id: 'education' },
+  { label: 'Contact', id: 'contact' },
+]
+
 export default function Portfolio() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      requestAnimationFrame(() => {
+        setIsScrolled(window.scrollY > 50)
+      })
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = useCallback((id: string) => {
     const element = document.getElementById(id)
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
       setIsMobileMenuOpen(false)
     }
-  }
-
-  const navItems = [
-    { label: 'About', id: 'about' },
-    { label: 'Experience', id: 'experience' },
-    { label: 'Skills', id: 'skills' },
-    { label: 'Projects', id: 'projects' },
-    { label: 'Education', id: 'education' },
-    { label: 'Contact', id: 'contact' },
-  ]
+  }, [])
 
   return (
     <div className="min-h-screen bg-background">
@@ -51,7 +57,12 @@ export default function Portfolio() {
         }`}
       >
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="font-bold text-xl bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <div
+            className={`font-bold text-xl bg-gradient-to-r bg-clip-text text-transparent cursor-pointer ${
+              isScrolled ? 'from-primary to-primary/60' : 'from-white to-white/60'
+            }`}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
             SAIANIRUTH M
           </div>
 
@@ -61,18 +72,26 @@ export default function Portfolio() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-sm font-medium hover:text-primary transition-colors"
+                className={`text-sm font-medium transition-colors ${
+                  isScrolled ? 'text-foreground hover:text-primary' : 'text-white/90 hover:text-white'
+                }`}
               >
                 {item.label}
               </button>
             ))}
-            <ModeToggle />
+            <ModeToggle className={isScrolled ? '' : 'text-white hover:bg-white/20 hover:text-white'} />
           </nav>
 
           {/* Mobile Menu Toggle */}
           <div className="flex items-center gap-4 md:hidden">
-            <ModeToggle />
-            <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Toggle mobile menu">
+            <ModeToggle className={isScrolled ? '' : 'text-white hover:bg-white/20 hover:text-white'} />
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle mobile menu"
+              className={isScrolled ? '' : 'text-white hover:bg-white/20 hover:text-white'}
+            >
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
@@ -97,40 +116,40 @@ export default function Portfolio() {
       </header>
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-secondary/10 pt-16">
+      <section className="relative min-h-screen flex items-center justify-center bg-zinc-950 bg-gradient-to-br from-white/10 via-zinc-950 to-white/5 pt-16 text-white">
         <img
-          src="/assets/hero-abstract-ai.jpg"
+          src="/assets/hero-abstract-ai.webp"
           alt="Abstract AI background"
           className="absolute inset-0 w-full h-full object-cover opacity-20"
         />
         <div className="relative z-10 text-center space-y-8 px-4 max-w-4xl mx-auto">
           <div className="space-y-4">
-            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
               SAIANIRUTH M
             </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold text-muted-foreground">
+            <h2 className="text-2xl md:text-3xl font-semibold text-zinc-400">
               AI Scientist
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
               Passionate about building intelligent systems that solve real-world problems through 
               cutting-edge AI, machine learning, and robust ML engineering practices.
             </p>
           </div>
           
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button variant="outline" size="lg" asChild>
+            <Button variant="outline" size="lg" asChild className="border-zinc-700 bg-zinc-900/50 text-white hover:bg-zinc-800 hover:text-white">
               <a href="https://github.com/Saianiruthm" target="_blank" rel="noopener noreferrer">
                 <Github className="h-5 w-5 mr-2" />
                 GitHub
               </a>
             </Button>
-            <Button variant="outline" size="lg" asChild>
+            <Button variant="outline" size="lg" asChild className="border-zinc-700 bg-zinc-900/50 text-white hover:bg-zinc-800 hover:text-white">
               <a href="https://linkedin.com/in/saianiruth-m" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="h-5 w-5 mr-2" />
                 LinkedIn
               </a>
             </Button>
-            <Button variant="outline" size="lg" asChild>
+            <Button variant="outline" size="lg" asChild className="border-zinc-700 bg-zinc-900/50 text-white hover:bg-zinc-800 hover:text-white">
               <a href="https://medium.com/@sai2804aniruth" target="_blank" rel="noopener noreferrer">
                 <BookOpen className="h-5 w-5 mr-2" />
                 Medium
@@ -156,7 +175,7 @@ export default function Portfolio() {
               <div className="lg:col-span-1">
                 <div className="h-64 lg:h-full min-h-[300px] relative rounded-lg shadow-lg overflow-hidden">
                   <img
-                    src="/assets/data-science-workspace.jpg"
+                    src="/assets/data-science-workspace.webp"
                     alt="Data Science Workspace"
                     loading="lazy"
                     className="w-full h-full object-cover"
@@ -253,7 +272,7 @@ export default function Portfolio() {
                   <CardDescription className="text-lg">{experienceData.location}</CardDescription>
                 </div>
                 <img
-                  src="/assets/5c-network.png"
+                  src="/assets/5c-network.webp"
                   alt="5C Network Logo"
                   loading="lazy"
                   className="w-32 h-32 object-contain rounded-lg"
@@ -369,7 +388,7 @@ export default function Portfolio() {
             
             <TabsContent value="professional" className="mt-8">
               <Accordion type="single" collapsible className="space-y-4">
-                {Object.entries(professionalProjects).map(([category, projects]) => (
+                {professionalProjectsEntries.map(([category, projects]) => (
                   <AccordionItem key={category} value={category} className="border rounded-lg px-4">
                     <AccordionTrigger className="text-lg font-semibold">
                       {category} ({projects.length} projects)
@@ -397,7 +416,7 @@ export default function Portfolio() {
             
             <TabsContent value="personal" className="mt-8">
               <Accordion type="single" collapsible className="space-y-4">
-                {Object.entries(personalProjects).map(([category, projects]) => (
+                {personalProjectsEntries.map(([category, projects]) => (
                   <AccordionItem key={category} value={category} className="border rounded-lg px-4">
                     <AccordionTrigger className="text-lg font-semibold">
                       {category} ({projects.length} projects)
@@ -523,8 +542,8 @@ export default function Portfolio() {
       <BackToTop />
 
       {/* Footer */}
-      <footer className="py-8 bg-muted mt-auto border-t">
-        <div className="container mx-auto px-4">
+      <footer className="py-8 bg-muted mt-auto border-t pb-24 md:pb-8">
+        <div className="container mx-auto px-4 md:pr-24">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="text-center md:text-left">
               <p className="text-sm text-muted-foreground">
