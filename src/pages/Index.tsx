@@ -529,8 +529,8 @@ export default function Portfolio() {
       <BackToTop />
 
       {/* Footer */}
-      <footer className="py-8 bg-muted mt-auto border-t">
-        <div className="container mx-auto px-4">
+      <footer className="py-8 bg-muted mt-auto border-t pb-24 md:pb-8">
+        <div className="container mx-auto px-4 md:pr-24">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="text-center md:text-left">
               <p className="text-sm text-muted-foreground">
