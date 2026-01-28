@@ -103,7 +103,7 @@ export default function Portfolio() {
       </header>
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-secondary/10 pt-16">
+      <section className="relative min-h-screen flex items-center justify-center bg-zinc-950 bg-gradient-to-br from-white/10 via-zinc-950 to-white/5 pt-16 text-white">
         <img
           src="/assets/hero-abstract-ai.webp"
           alt="Abstract AI background"
@@ -111,32 +111,32 @@ export default function Portfolio() {
         />
         <div className="relative z-10 text-center space-y-8 px-4 max-w-4xl mx-auto">
           <div className="space-y-4">
-            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
               SAIANIRUTH M
             </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold text-muted-foreground">
+            <h2 className="text-2xl md:text-3xl font-semibold text-zinc-400">
               AI Scientist
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
               Passionate about building intelligent systems that solve real-world problems through 
               cutting-edge AI, machine learning, and robust ML engineering practices.
             </p>
           </div>
           
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button variant="outline" size="lg" asChild>
+            <Button variant="outline" size="lg" asChild className="border-zinc-700 bg-zinc-900/50 text-white hover:bg-zinc-800 hover:text-white">
               <a href="https://github.com/Saianiruthm" target="_blank" rel="noopener noreferrer">
                 <Github className="h-5 w-5 mr-2" />
                 GitHub
               </a>
             </Button>
-            <Button variant="outline" size="lg" asChild>
+            <Button variant="outline" size="lg" asChild className="border-zinc-700 bg-zinc-900/50 text-white hover:bg-zinc-800 hover:text-white">
               <a href="https://linkedin.com/in/saianiruth-m" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="h-5 w-5 mr-2" />
                 LinkedIn
               </a>
             </Button>
-            <Button variant="outline" size="lg" asChild>
+            <Button variant="outline" size="lg" asChild className="border-zinc-700 bg-zinc-900/50 text-white hover:bg-zinc-800 hover:text-white">
               <a href="https://medium.com/@sai2804aniruth" target="_blank" rel="noopener noreferrer">
                 <BookOpen className="h-5 w-5 mr-2" />
                 Medium
