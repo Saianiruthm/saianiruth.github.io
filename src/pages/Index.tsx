@@ -42,6 +42,10 @@ export default function Portfolio() {
     { label: 'Contact', id: 'contact' },
   ]
 
+  // Memoize project entries to prevent re-computation on every render
+  const professionalProjectsEntries = Object.entries(professionalProjects)
+  const personalProjectsEntries = Object.entries(personalProjects)
+
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation Bar */}
@@ -369,7 +373,7 @@ export default function Portfolio() {
             
             <TabsContent value="professional" className="mt-8">
               <Accordion type="single" collapsible className="space-y-4">
-                {Object.entries(professionalProjects).map(([category, projects]) => (
+                {professionalProjectsEntries.map(([category, projects]) => (
                   <AccordionItem key={category} value={category} className="border rounded-lg px-4">
                     <AccordionTrigger className="text-lg font-semibold">
                       {category} ({projects.length} projects)
@@ -397,7 +401,7 @@ export default function Portfolio() {
             
             <TabsContent value="personal" className="mt-8">
               <Accordion type="single" collapsible className="space-y-4">
-                {Object.entries(personalProjects).map(([category, projects]) => (
+                {personalProjectsEntries.map(([category, projects]) => (
                   <AccordionItem key={category} value={category} className="border rounded-lg px-4">
                     <AccordionTrigger className="text-lg font-semibold">
                       {category} ({projects.length} projects)
