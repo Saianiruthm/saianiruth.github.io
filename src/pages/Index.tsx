@@ -99,7 +99,7 @@ export default function Portfolio() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-secondary/10 pt-16">
         <img
-          src="/assets/hero-abstract-ai.jpg"
+          src="/assets/hero-abstract-ai.webp"
           alt="Abstract AI background"
           className="absolute inset-0 w-full h-full object-cover opacity-20"
         />
@@ -156,7 +156,7 @@ export default function Portfolio() {
               <div className="lg:col-span-1">
                 <div className="h-64 lg:h-full min-h-[300px] relative rounded-lg shadow-lg overflow-hidden">
                   <img
-                    src="/assets/data-science-workspace.jpg"
+                    src="/assets/data-science-workspace.webp"
                     alt="Data Science Workspace"
                     loading="lazy"
                     className="w-full h-full object-cover"
@@ -253,7 +253,7 @@ export default function Portfolio() {
                   <CardDescription className="text-lg">{experienceData.location}</CardDescription>
                 </div>
                 <img
-                  src="/assets/5c-network.png"
+                  src="/assets/5c-network.webp"
                   alt="5C Network Logo"
                   loading="lazy"
                   className="w-32 h-32 object-contain rounded-lg"
