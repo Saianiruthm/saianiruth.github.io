@@ -69,6 +69,12 @@ interface Project {
         description: "Large-scale training on 120K chest X-ray images. Normal vs Abnormal classification and segmentation (Pleural Effusion, Consolidation) using diverse backbones.",
         technologies: ["BioViL", "Swin Transformer", "YOLOv11-Seg", "UNet", "Attention-UNet", "DenseNet121"],
         achievements: ["93.16% accuracy (hybrid model)", "97.21% F1 (Sternal Sutures)", "100% precision (Pleural Effusion)"]
+      },
+      {
+        title: "Multi-Label Chest X-ray Classifier (YOLO11-M)",
+        description: "Production-ready multi-label classification system for 40 pathologies using YOLO11-M backbone with FPN. Designed with a configurable system allowing seamless switching between Weighted BCE and Asymmetric Focal Loss via YAML to handle class imbalance. Features two-phase fine-tuning, mixed precision training, and ONNX/TensorRT export.",
+        technologies: ["PyTorch", "YOLO11-M", "Asymmetric Focal Loss", "ONNX/TensorRT", "Mixed Precision (BF16)", "Ultralytics"],
+        achievements: ["Macro AUROC ~0.82–0.88 (40 pathologies)", "40 independent binary classifier heads", "Configurable loss strategies (BCE/Focal)"]
       }
     ],
     "Medical Imaging - Vision-Language Models": [
