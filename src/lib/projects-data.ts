@@ -128,12 +128,12 @@ interface Project {
         technologies: ["FastAPI", "Docker", "Docker Compose", "PyTorch", "Structlog", "YAML"],
         achievements: ["Dynamic model loading", "GPU support", "Production-ready containerization"]
       },
-      {
-        title: "Radiologist Workflow Dashboard",
-        description: "Unified radiologist interface consolidating patient history, imaging metadata, and AI-generated summaries. Clinical history summarization with Gemini API.",
-        technologies: ["FastAPI", "Gemini API", "React/Next.js", "PostgreSQL", "REST APIs"],
-        achievements: ["Clinical history summaries", "Context-aware question prompts", "Timeline-based UI"]
-      },
+      // {
+      //   title: "Radiologist Workflow Dashboard",
+      //   description: "Unified radiologist interface consolidating patient history, imaging metadata, and AI-generated summaries. Clinical history summarization with Gemini API.",
+      //   technologies: ["FastAPI", "Gemini API", "React/Next.js", "PostgreSQL", "REST APIs"],
+      //   achievements: ["Clinical history summaries", "Context-aware question prompts", "Timeline-based UI"]
+      // },
       {
         title: "Image Similarity-Based Report Retrieval",
         description: "RAG-style system using MetaCLIP for retrieving relevant historical X-ray reports. FAISS-indexed 1.6M images with Gemini 2.5 Flash for report synthesis.",
@@ -148,20 +148,14 @@ interface Project {
         showcaseUrl: "https://icudemo.etiqueta.cubebase.ai/"
       }
     ],
-    "Intelligent Automation & LLM Systems": [
-      {
-        title: "Intelligence Automation Server",
-        description: "AI-driven diagnostic rework automation handling Gmail and WhatsApp requests. Gemini-powered message normalization with Google Sheets workflow tracking.",
-        technologies: ["Python", "FastAPI", "Gemini API", "Gmail API", "WhatsApp Cloud API", "Google Sheets"],
-        achievements: ["Unified message ingestion", "100% traceability", "Automated status notifications"]
-      },
-      {
-        title: "QC-Hire - LLM-Powered ATS",
-        description: "End-to-end AI-driven ATS with multi-stage recruitment screening. Gemini-based resume scoring with dynamic MCQ generation tailored to candidate profiles.",
-        technologies: ["Python", "FastAPI", "Gemini API", "LangChain", "React/Next.js", "PostgreSQL"],
-        achievements: ["70% reduction in shortlisting time", "Dynamic MCQ generation", "Multi-threshold evaluation"]
-      }
-    ]
+    // "Intelligent Automation & LLM Systems": [
+    //   {
+    //     title: "Intelligence Automation Server",
+    //     description: "AI-driven diagnostic rework automation handling Gmail and WhatsApp requests. Gemini-powered message normalization with Google Sheets workflow tracking.",
+    //     technologies: ["Python", "FastAPI", "Gemini API", "Gmail API", "WhatsApp Cloud API", "Google Sheets"],
+    //     achievements: ["Unified message ingestion", "100% traceability", "Automated status notifications"]
+    //   }
+    // ]
   }
   
   export const personalProjects: Record<string, Project[]> = {
@@ -265,6 +259,12 @@ interface Project {
         url: "#",
         technologies: ["Python", "Cryptography", "Tkinter/CLI"],
         description: "A secure local credential management tool. AES encryption. Local encrypted vault storage. GUI + CLI interfaces. Auto password generator. Integrity check + safe read/write."
+      },
+      {
+        title: "HireAI - LLM-Powered ATS",
+        description: "End-to-end AI-driven ATS with multi-stage recruitment screening. Gemini-based resume scoring with dynamic MCQ generation tailored to candidate profiles.",
+        technologies: ["Python", "FastAPI", "Gemini API", "LangChain", "React/Next.js", "PostgreSQL"],
+        achievements: ["70% reduction in shortlisting time", "Dynamic MCQ generation", "Multi-threshold evaluation"]
       },
       {
         title: "E-Commerce Scraper + GPT Insights",
