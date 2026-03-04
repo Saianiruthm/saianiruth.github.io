@@ -20,8 +20,8 @@ export const experienceData = {
       "Designed scalable data engineering workflows using FastAPI, Docker, and cloud infrastructure (GCP), serving 1000+ real-time predictions per hour with sub-second latency and GPU optimization",
       "Created multimodal AI systems integrating vision-language models (PaliGemma, CheXagent, Gemini) for automated radiology report generation, achieving 81.43% F1 score on findings/impressions tasks",
       "Developed RAG-based retrieval systems using MetaCLIP and FAISS for image similarity search across 1.6M indexed studies, enabling unsupervised pathology exploration and historical report synthesis",
-      "Built intelligent automation workflows integrating Gmail API, WhatsApp Cloud API, and Gemini for diagnostic rework automation, eliminating manual message processing and ensuring 100% traceability",
-      "Engineered LLM-powered ATS system (QC-Hire) with dynamic resume scoring, custom MCQ generation, and multi-threshold evaluation, reducing manual shortlisting time by 70%"
+      // "Built intelligent automation workflows integrating Gmail API, WhatsApp Cloud API, and Gemini for diagnostic rework automation, eliminating manual message processing and ensuring 100% traceability",
+      // "Engineered LLM-powered ATS system (QC-Hire) with dynamic resume scoring, custom MCQ generation, and multi-threshold evaluation, reducing manual shortlisting time by 70%"
     ],
     technologies: [
       "Python", "PyTorch", "TensorFlow", "Hugging Face", "Scikit-learn", "OpenCV", "Pandas", "NumPy",
