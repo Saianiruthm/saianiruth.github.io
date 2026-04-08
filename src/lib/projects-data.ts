@@ -281,12 +281,6 @@ interface Project {
         url: "https://github.com/Saianiruthm/saianiruth.github.io",
         technologies: ["HTML", "CSS", "JavaScript"],
         description: "Responsive personal website showcasing skills & projects."
-      },
-      {
-        title: "Temperature Converter Web App",
-        url: "https://github.com/Saianiruthm/temperature.github.io",
-        technologies: ["HTML", "CSS", "JavaScript"],
-        description: "Simple browser-based Celsius–Fahrenheit converter using DOM scripting."
       }
     ]
   }
