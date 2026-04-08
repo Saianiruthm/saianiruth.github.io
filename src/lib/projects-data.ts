@@ -60,9 +60,9 @@ interface Project {
       },
       {
         title: "Chest X-ray Pathology Detection",
-        description: "Specialized object detection models for Mass, Fibrosis, and Rib Fracture. Dedicated models for high-priority pathologies to maximize sensitivity.",
-        technologies: ["RF-DETR Medium", "EfficientDet-D7x", "Object Detection"],
-        achievements: ["100% precision (Mass)", "96.42% recall (Mass)", "97.75% F1 (Rib Fracture)"]
+        description: "Specialized object detection models for Mass, Fibrosis, Rib Fracture, Pneumothorax, and Mediastinal Shift. Dedicated models for high-priority pathologies to maximize sensitivity.",
+        technologies: ["RF-DETR Medium", "EfficientDet-D7x", "YOLOv8", "YOLOv11", "Object Detection"],
+        achievements: ["100% precision (Mass)", "96.42% recall (Mass)", "97.75% F1 (Rib Fracture)", "96.09% AUPRC (Pneumothorax)", "89.43% F1 (Mediastinal Shift)", "86.26% F1 (Fibrosis)"]
       },
       {
         title: "Large-Scale Federated CXR Models",
@@ -146,6 +146,24 @@ interface Project {
         technologies: ["PyTorch", "YOLOv8/YOLOv11", "EfficientDet", "RF-DETR", "FastAPI", "HTML5", "CSS3", "JavaScript", "Docker"],
         achievements: ["Multi-pathology detection (ICU conditions)", "Medical device malposition checks", "Structured JSON + clinical reports"],
         showcaseUrl: "https://icudemo.etiqueta.cubebase.ai/"
+      },
+      {
+        title: "CXR Suite",
+        description: "Comprehensive AI solution for Chest X-Ray analysis including pathology detection, device detection, malposition analysis, and cardiothoracic ratio.",
+        technologies: ["Python", "FastAPI", "Uvicorn", "Modal", "SQLite"],
+        achievements: ["30+ pathologies detected", "16+ support devices recognized", "Flexible deployment (API/App/Cloud)"]
+      },
+      {
+        title: "Pathologies — single-service APIs",
+        description: "Standalone FastAPI services for chest X-ray findings. Independent deployable apps for various pathologies with standardized API contracts.",
+        technologies: ["Python", "FastAPI", "RF-DETR", "YOLO", "EfficientDet"],
+        achievements: ["20+ standalone pathology services", "Standardized API contracts", "Modal deployment support"]
+      },
+      {
+        title: "Device CXR API",
+        description: "Production-grade API analyzing chest X-rays for supportive devices and malposition analysis with real-time SSE streaming.",
+        technologies: ["Python", "FastAPI", "YOLO", "Server-Sent Events", "PIL"],
+        achievements: ["Per-device malposition status", "Real-time SSE streaming", "Single overlay image rendering"]
       }
     ],
     // "Intelligent Automation & LLM Systems": [
