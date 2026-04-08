@@ -60,9 +60,9 @@ interface Project {
       },
       {
         title: "Chest X-ray Pathology Detection",
-        description: "Specialized object detection models for Mass, Fibrosis, and Rib Fracture. Dedicated models for high-priority pathologies to maximize sensitivity.",
-        technologies: ["RF-DETR Medium", "EfficientDet-D7x", "Object Detection"],
-        achievements: ["100% precision (Mass)", "96.42% recall (Mass)", "97.75% F1 (Rib Fracture)"]
+        description: "Specialized object detection models for Mass, Fibrosis, Rib Fracture, Pneumothorax, and Mediastinal Shift. Dedicated models for high-priority pathologies to maximize sensitivity.",
+        technologies: ["RF-DETR Medium", "EfficientDet-D7x", "YOLOv8", "YOLOv11", "Object Detection"],
+        achievements: ["100% precision (Mass)", "96.42% recall (Mass)", "97.75% F1 (Rib Fracture)", "96.09% AUPRC (Pneumothorax)", "89.43% F1 (Mediastinal Shift)", "86.26% F1 (Fibrosis)"]
       },
       {
         title: "Large-Scale Federated CXR Models",
@@ -92,7 +92,7 @@ interface Project {
       },
       {
         title: "Radiology Report Generation",
-        description: "Fine-tuned multimodal LLMs (PaliGemma 3B, Gemma 4B) for automated radiology report generation from chest X-rays. JSONL datasets with image-text pairs.",
+        description: "Fine-tuned multimodal LLMs (PaliGemma 3B, Gemma 4B) for automated radiology report generation from chest X-rays. JSONL datasets with image-text pairs. Architecture selection informed by extensive Vision Encoder experiments evaluating XrayGPT and BioMedLM for efficiency.",
         technologies: ["PaliGemma 3B", "Gemma 4B", "Hugging Face", "LoRA/QLoRA", "JSONL"],
         achievements: ["81.43% F1 score (PaliGemma)", "74% accuracy", "Findings & Impressions generation"]
       },
@@ -107,12 +107,6 @@ interface Project {
         description: "Contrastive learning framework based on CLIP to align medical images with diagnostic text. Trained on 420K samples across 69 labels for multi-label classification.",
         technologies: ["MedCLIP", "ViT", "Contrastive Learning", "PyTorch", "Mixed Precision"],
         achievements: ["98-100% accuracy (distinct classes)", "Multi-label classification", "Zero-shot capability"]
-      },
-      {
-        title: "Vision Encoder Experiments",
-        description: "Experimental attempts with XrayGPT and BioMedLM for report generation. Feasibility study to select efficient backbone for medical VLMs.",
-        technologies: ["XrayGPT", "BioMedLM", "Gemma-3", "PyTorch", "ViT"],
-        achievements: ["35 min/epoch (BioMedLM)", "Efficiency benchmarking", "Architecture comparison"]
       }
     ],
     "Clinical Workflow Systems": [
@@ -146,6 +140,24 @@ interface Project {
         technologies: ["PyTorch", "YOLOv8/YOLOv11", "EfficientDet", "RF-DETR", "FastAPI", "HTML5", "CSS3", "JavaScript", "Docker"],
         achievements: ["Multi-pathology detection (ICU conditions)", "Medical device malposition checks", "Structured JSON + clinical reports"],
         showcaseUrl: "https://icudemo.etiqueta.cubebase.ai/"
+      },
+      {
+        title: "CXR Suite",
+        description: "Comprehensive AI solution for Chest X-Ray analysis including pathology detection, device detection, malposition analysis, and cardiothoracic ratio.",
+        technologies: ["Python", "FastAPI", "Uvicorn", "Modal", "SQLite"],
+        achievements: ["30+ pathologies detected", "16+ support devices recognized", "Flexible deployment (API/App/Cloud)"]
+      },
+      {
+        title: "Pathologies — single-service APIs",
+        description: "Standalone FastAPI services for chest X-ray findings. Independent deployable apps for various pathologies with standardized API contracts.",
+        technologies: ["Python", "FastAPI", "RF-DETR", "YOLO", "EfficientDet"],
+        achievements: ["20+ standalone pathology services", "Standardized API contracts", "Modal deployment support"]
+      },
+      {
+        title: "Device CXR API",
+        description: "Production-grade API analyzing chest X-rays for supportive devices and malposition analysis with real-time SSE streaming.",
+        technologies: ["Python", "FastAPI", "YOLO", "Server-Sent Events", "PIL"],
+        achievements: ["Per-device malposition status", "Real-time SSE streaming", "Single overlay image rendering"]
       }
     ],
     // "Intelligent Automation & LLM Systems": [
@@ -185,18 +197,6 @@ interface Project {
         description: "Predicts stock closing prices using an LSTM neural network. Normalization using MinMaxScaler. Time-window sequence generation. Multi-layer LSTM with dropout. Visualized predicted vs real closing prices."
       },
       {
-        title: "Titanic Survival Prediction",
-        url: "https://github.com/Saianiruthm/titanicsurvivalprediction",
-        technologies: ["Python", "Pandas", "Sklearn"],
-        description: "Binary classification model predicting survival probability on the Titanic. Feature engineering: Title extraction, Age imputation. Models: Logistic Regression, Random Forest, SVM. Plots for survival patterns across Pclass, Sex, Age."
-      },
-      {
-        title: "Handwritten Digit Recognition (MNIST)",
-        url: "https://github.com/Saianiruthm/handwrittennumbersprediction",
-        technologies: ["Python", "TensorFlow"],
-        description: "Neural Network classifier for handwritten digits from the MNIST dataset. Trains multiple NN architectures. 98% test accuracy. Includes visualizations of predictions and error cases."
-      },
-      {
         title: "Machine Learning Regression – Car Price Prediction",
         url: "https://github.com/Saianiruthm/ML_1",
         technologies: ["Python", "Jupyter Notebook", "Scikit-Learn"],
@@ -211,28 +211,10 @@ interface Project {
         description: "Data engineering and visualization across five years of global happiness data. Unified 2015–2019 datasets. Standardized inconsistent features (e.g., 'Economy (GDP per Capita)' → 'GDP per capita'). Visualizes GDP, Trust, Social Support vs Happiness Score. Heatmaps reveal strongest global indicators."
       },
       {
-        title: "IMDb Top 1000 Movie Analysis",
-        url: "https://github.com/Saianiruthm/imdb_top_1000",
-        technologies: ["Python", "Seaborn", "Matplotlib"],
-        description: "Exploratory analysis of IMDB's Top 1000 movies dataset. Identifies top directors, genres, and production patterns. Analyzes rating distribution. Correlation between runtime, genre, IMDB score."
-      },
-      {
         title: "Time Series Sales Forecasting",
         url: "https://github.com/Saianiruthm/Time_series_sales",
         technologies: ["Python", "Statsmodels"],
         description: "Analysis of a multi-period sales dataset using classical time-series techniques. Decomposition into trend, seasonality. Tested ARIMA/SARIMA models. Rolling means + stationarity tests (ADF)."
-      },
-      {
-        title: "Weather Data Analysis",
-        url: "https://github.com/Saianiruthm/pandasproject2",
-        technologies: ["Python", "Pandas"],
-        description: "Explores long-term weather attributes from weatherHistory.csv. Temp, humidity, wind-speed analysis. Daily/Monthly aggregation. Detects long-term patterns."
-      },
-      {
-        title: "Netflix Titles Dataset Analysis",
-        url: "https://github.com/Saianiruthm/pandasproject",
-        technologies: ["Python", "Pandas"],
-        description: "Examines Netflix's movie and TV catalog dataset. Worldwide content percentage. Yearly release trends. Genre distribution analysis."
       },
       {
         title: "AdventureWorks BI Dashboard",
@@ -245,12 +227,6 @@ interface Project {
         url: "https://github.com/Saianiruthm/sqlproject",
         technologies: ["SQLite", "SQL queries"],
         description: "Credit card transaction analysis using SQL. Window functions, joins, aggregates. High-spend customers vs category analysis. Potential fraud detection patterns."
-      },
-      {
-        title: "Laptop Data Cleaning & Analysis (Excel)",
-        url: "https://github.com/Saianiruthm/excelproject",
-        technologies: ["MS Excel", "Pivot Tables", "Power Query"],
-        description: "Excel-driven analysis of laptop pricing dataset. 20+ cleaned features. Price distribution insights. Pivot chart dashboards."
       }
     ],
     "Software Engineering & Python Applications": [
@@ -271,12 +247,6 @@ interface Project {
         url: "#",
         technologies: ["Python", "Selenium/BS4", "Proxies", "GPT API"],
         description: "A full pipeline for scraping Amazon/Flipkart/Myntra. Handles lazy loading, pagination. Rotating proxies to avoid blocks. CAPTCHA bypass support. Exports structured JSON. GPT-powered product comparison, shortlisting, summaries."
-      },
-      {
-        title: "Automated Desktop Cleaner",
-        url: "#",
-        technologies: ["Python", "OS Automation"],
-        description: "A background system to auto-organize your desktop. Sorts by file type. Moves/Archives/Deletes automatically. Interval-based monitoring. Logging & conflict resolution."
       }
     ],
     "Automation, Tools & Labeling Workflows": [
@@ -285,18 +255,6 @@ interface Project {
         url: "https://github.com/Saianiruthm/labelstudio-redundancy-workflow",
         technologies: ["Python"],
         description: "Automates multi-annotator validation in Label Studio. Aggregates annotations. Detects annotation conflicts. Flags mismatches for review. Prepares cleaned dataset for ML training."
-      },
-      {
-        title: "Task_1 — Annotation Configuration Project",
-        url: "https://github.com/Saianiruthm/Task_1",
-        technologies: ["Label Studio", "JSON"],
-        description: "Defines two complex annotation projects: Brush-based segmentation. Rectangle bounding box labels. Choice-based classification tasks."
-      },
-      {
-        title: "TechnoHacks Internship Projects",
-        url: "https://github.com/Saianiruthm/technohacksinternship",
-        technologies: ["Python"],
-        description: "Collection of small Python applications: Calculator. Temperature converter. Mini games. Utility scripts."
       }
     ],
     "Systems Programming, Embedded Logic & Web Development": [
@@ -313,16 +271,10 @@ interface Project {
         description: "Banking simulation with role-based access. Admin + User logins. Binary file account storage. Fund transfers, balance inquiry. OOP modeling (classes, inheritance)."
       },
       {
-        title: "Sound Activated System",
-        url: "https://github.com/Saianiruthm/sas",
-        technologies: ["Embedded Logic"],
-        description: "Sound-based automated switching system. Detects claps/noise. Controls electrical appliances. Energy efficient automation."
-      },
-      {
-        title: "Street Light Automation",
-        url: "https://github.com/Saianiruthm/slm",
-        technologies: ["Embedded Systems"],
-        description: "Ambient-light-triggered automatic streetlight system. Photodiode/LDR-based detection. Day/Night switching. Energy efficient."
+        title: "Hardware Automation Projects",
+        url: "https://github.com/Saianiruthm",
+        technologies: ["Embedded Logic", "Embedded Systems"],
+        description: "Early Electrical Engineering projects (Sound Activated System & Street Light Automation) representing my initial background before transitioning to AI."
       },
       {
         title: "Personal Portfolio Website",
