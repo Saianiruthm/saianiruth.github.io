@@ -14,9 +14,9 @@ export interface Project {
     "Medical Imaging - Classification & Detection": [
       {
         title: "Pediatric Chest X-ray Analysis",
-        description: "Binary classification model for pediatric chest X-rays using feature fusion of DenseNet-169 and EfficientNet-B3. Implemented LANCZOS resizing and CLAHE contrast enhancement for preprocessing.",
-        technologies: ["Python", "PyTorch", "DenseNet-169", "EfficientNet-B3", "CLAHE", "Adam Optimizer"],
-        achievements: ["98.07% accuracy (DenseNet)", "98.14% accuracy with 99% precision (fusion)", "Feature fusion strategy"],
+        description: "Binary classification system for pediatric chest X-rays trained on ~60K annotated images (20K positive, 40K negative). Two-tower feature fusion of DenseNet-169 (1024-d) and EfficientNet-B2 (1408-d) into a 2432-d concatenated representation, followed by a two-layer classifier head (Linear→ReLU→Dropout(0.3)→Linear→Sigmoid). Preprocessing pipeline applies LANCZOS resizing to 224×224 and CLAHE contrast enhancement. Trained with BCELoss + Adam (lr 1e-3) over 50 epochs on an 80/10/10 split with autobatch sizing, comparing standalone DenseNet/EfficientNet against the fused dual-backbone variant.",
+        technologies: ["Python", "PyTorch", "DenseNet-169", "EfficientNet-B2", "EfficientNet-B3", "CLAHE", "LANCZOS", "Adam Optimizer", "BCELoss", "CUDA"],
+        achievements: ["98.07% accuracy / 97% precision / 99% recall (DenseNet-169)", "98.14% accuracy with 99% precision (fused dual-backbone)", "Two-tower feature concatenation (2432-d) with dropout-regularized head", "CLAHE preprocessing for low-contrast pediatric radiographs", "80/10/10 split with autobatch + early-stopping discipline"],
         featured: true
       },
       {
@@ -39,9 +39,9 @@ export interface Project {
       },
       {
         title: "Shoulder Fracture Research Ensemble",
-        description: "Multi-model ensemble integrating Faster R-CNN, EfficientDet, and RF-DETR. Weighted ensemble strategy with IoU-based bounding box clustering. Subject of an arXiv publication.",
-        technologies: ["Faster R-CNN", "EfficientDet", "RF-DETR", "Ensemble Fusion", "ONNX/TensorRT"],
-        achievements: ["Reduced false negatives", "RF-DETR: highest recall", "Faster R-CNN: superior localization", "Published: arXiv 2507.13408"],
+        description: "Multi-architecture deep-learning framework for automated shoulder fracture localization on AP radiographs, subject of an arXiv publication. Integrates three independently-trained detectors — Faster R-CNN (ResNet-50 FPN baseline for high-quality localization), EfficientDet-D3 (BiFPN + EfficientNet backbone for fast inference), and RF-DETR (pure-transformer head with global attention for maximum recall on subtle cortical disruptions) — and fuses their outputs through an IoU-clustered, confidence-weighted ensemble that anchors final geometry to RF-DETR boxes. Preprocessing covers intensity normalization, histogram equalization, automated shoulder-joint cropping, and resolution standardization. Evaluation includes mAP at multiple IoU thresholds, ROC/PR curves, and dedicated false-negative analysis for hairline, greater-tuberosity, and subtle cortical-contour fractures. Production-ready: ONNX/TensorRT export with ensemble inference at 120–250 ms on A100-class GPUs.",
+        technologies: ["PyTorch", "Faster R-CNN", "ResNet-50 FPN", "EfficientDet-D3", "BiFPN", "RF-DETR", "Transformer Detection", "Ensemble Fusion", "IoU Clustering", "ONNX", "TensorRT", "CUDA"],
+        achievements: ["Published: arXiv 2507.13408 — Deep Learning Framework for Automated Shoulder Fracture Detection", "Ensemble outperforms every individual detector — sharply reduced false negatives", "RF-DETR: highest recall on subtle cortical disruptions", "Faster R-CNN: superior localization in clear-contrast images", "EfficientDet-D3: fastest runtime with moderate recall", "120–250 ms ensemble inference on A100 (ONNX/TensorRT)", "COCO-style annotations with hairline / greater-tuberosity FN analysis"],
         featured: true,
         blogUrl: "https://doi.org/10.48550/arXiv.2507.13408"
       },
