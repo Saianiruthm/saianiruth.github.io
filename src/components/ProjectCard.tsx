@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Eye, Github, CheckCircle2 } from "lucide-react";
+import { Eye, Github, CheckCircle2, BookOpen } from "lucide-react";
 
 interface ProjectCardProps {
   title: string;
@@ -9,45 +9,65 @@ interface ProjectCardProps {
   achievements?: string[];
   liveUrl?: string;
   showcaseUrl?: string;
+  blogUrl?: string;
   category: 'professional' | 'personal';
+  featured?: boolean;
 }
 
-export function ProjectCard({ 
-  title, 
-  description, 
-  technologies, 
+export function ProjectCard({
+  title,
+  description,
+  technologies,
   achievements,
   showcaseUrl,
   liveUrl,
-  category 
+  blogUrl,
+  category,
+  featured,
 }: ProjectCardProps) {
   return (
-    <Card className="h-full flex flex-col hover:shadow-lg transition-shadow">
+    <Card className={`h-full flex flex-col hover:shadow-lg hover:border-primary/50 transition-all duration-300 ${featured ? 'border-primary/40 shadow-sm' : ''}`}>
       <CardHeader>
         <div className="flex items-start justify-between gap-2">
           <CardTitle className="text-xl flex-1">{title}</CardTitle>
-          {category === 'professional' && showcaseUrl && (
-            <a
-              href={showcaseUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:text-primary/80 transition-colors flex-shrink-0"
-              aria-label="View showcase"
-            >
-              <Eye className="h-5 w-5" />
-            </a>
-          )}
-          {category === 'personal' && liveUrl && liveUrl !== '#' && (
-            <a
-              href={liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:text-primary/80 transition-colors flex-shrink-0"
-              aria-label="View on GitHub"
-            >
-              <Github className="h-5 w-5" />
-            </a>
-          )}
+          <div className="flex items-center gap-2 flex-shrink-0">
+            {category === 'professional' && showcaseUrl && (
+              <a
+                href={showcaseUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:text-primary/80 transition-colors"
+                aria-label="View live showcase"
+                title="Live showcase"
+              >
+                <Eye className="h-5 w-5" />
+              </a>
+            )}
+            {category === 'personal' && liveUrl && liveUrl !== '#' && (
+              <a
+                href={liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:text-primary/80 transition-colors"
+                aria-label="View on GitHub"
+                title="GitHub"
+              >
+                <Github className="h-5 w-5" />
+              </a>
+            )}
+            {blogUrl && (
+              <a
+                href={blogUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:text-primary/80 transition-colors"
+                aria-label="Read blog post"
+                title="Read deep dive"
+              >
+                <BookOpen className="h-5 w-5" />
+              </a>
+            )}
+          </div>
         </div>
         <CardDescription className="text-sm">{description}</CardDescription>
       </CardHeader>

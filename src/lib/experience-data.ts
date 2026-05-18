@@ -14,12 +14,14 @@ export const experienceData = {
       }
     ],
     highlights: [
-      "Developed 22+ production-grade AI models for medical imaging analysis, including pediatric chest X-rays (98.14% accuracy), shoulder fractures (89.42% F1), tuberculosis/silicosis detection, and multi-pathology systems for ICU diagnostics",
+      "Developed 24+ production-grade AI models for medical imaging analysis, including pediatric chest X-rays (98.14% accuracy), shoulder fractures (89.42% F1), tuberculosis/silicosis detection, multi-pathology systems for ICU diagnostics, and automated CXR quality-control classifiers",
       "Built end-to-end ML pipelines using PyTorch, TensorFlow, and Hugging Face Transformers, processing 1.6M+ medical images with advanced preprocessing (CLAHE, LANCZOS) and augmentation techniques",
       "Implemented ensemble learning systems combining DenseNet, EfficientNet, ResNet, Vision Transformers (ViT), CLIP, and YOLO architectures for robust clinical decision support across multiple modalities (X-ray, CT, MRI)",
       "Designed scalable data engineering workflows using FastAPI, Docker, and cloud infrastructure (GCP), serving 1000+ real-time predictions per hour with sub-second latency and GPU optimization",
       "Created multimodal AI systems integrating vision-language models (PaliGemma, CheXagent, Gemini) for automated radiology report generation, achieving 81.43% F1 score on findings/impressions tasks",
       "Developed RAG-based retrieval systems using MetaCLIP and FAISS for image similarity search across 1.6M indexed studies, enabling unsupervised pathology exploration and historical report synthesis",
+      "Productionized the CXR analysis suite into cross-platform deployments — a Windows desktop installer (Electron + PyInstaller + AES-256 model decryption + admin-aware auto-updater) and a Linux web release (nginx + systemd + Firebase auth + email-domain allowlist) — with modular DB-driven inference, RAM-adaptive model management, persistent SQLite-backed CXR queue, SSE streaming, and rotation-aware tiered CTR clinical decision logic",
+      "Built an automated CXR quality-control pipeline combining multiclass quality classifiers with OR-aggregation logic and a Gemini-based structured QC layer (Gemini 2.5 Flash and 3 Flash Preview) using DICOM metadata + PNG renders under strict JSON schemas, with deterministic field-validation and QC-label mapping for downstream parsing reliability",
       // "Built intelligent automation workflows integrating Gmail API, WhatsApp Cloud API, and Gemini for diagnostic rework automation, eliminating manual message processing and ensuring 100% traceability",
       // "Engineered LLM-powered ATS system (QC-Hire) with dynamic resume scoring, custom MCQ generation, and multi-threshold evaluation, reducing manual shortlisting time by 70%"
     ],

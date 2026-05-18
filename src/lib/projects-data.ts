@@ -1,4 +1,4 @@
-interface Project {
+export interface Project {
     title: string
     description: string
     technologies: string[]
@@ -6,6 +6,8 @@ interface Project {
     url?: string
     liveUrl?: string
     showcaseUrl?: string
+    blogUrl?: string
+    featured?: boolean
   }
   
   export const professionalProjects: Record<string, Project[]> = {
@@ -14,7 +16,8 @@ interface Project {
         title: "Pediatric Chest X-ray Analysis",
         description: "Binary classification model for pediatric chest X-rays using feature fusion of DenseNet-169 and EfficientNet-B3. Implemented LANCZOS resizing and CLAHE contrast enhancement for preprocessing.",
         technologies: ["Python", "PyTorch", "DenseNet-169", "EfficientNet-B3", "CLAHE", "Adam Optimizer"],
-        achievements: ["98.07% accuracy (DenseNet)", "98.14% accuracy with 99% precision (fusion)", "Feature fusion strategy"]
+        achievements: ["98.07% accuracy (DenseNet)", "98.14% accuracy with 99% precision (fusion)", "Feature fusion strategy"],
+        featured: true
       },
       {
         title: "Shoulder Fracture Detection (YOLO)",
@@ -36,9 +39,11 @@ interface Project {
       },
       {
         title: "Shoulder Fracture Research Ensemble",
-        description: "Multi-model ensemble integrating Faster R-CNN, EfficientDet, and RF-DETR. Weighted ensemble strategy with IoU-based bounding box clustering.",
+        description: "Multi-model ensemble integrating Faster R-CNN, EfficientDet, and RF-DETR. Weighted ensemble strategy with IoU-based bounding box clustering. Subject of an arXiv publication.",
         technologies: ["Faster R-CNN", "EfficientDet", "RF-DETR", "Ensemble Fusion", "ONNX/TensorRT"],
-        achievements: ["Reduced false negatives", "RF-DETR: highest recall", "Faster R-CNN: superior localization"]
+        achievements: ["Reduced false negatives", "RF-DETR: highest recall", "Faster R-CNN: superior localization", "Published: arXiv 2507.13408"],
+        featured: true,
+        blogUrl: "https://doi.org/10.48550/arXiv.2507.13408"
       },
       {
         title: "General Fracture Detection",
@@ -75,6 +80,12 @@ interface Project {
         description: "Production-ready multi-label classification system for 40 pathologies using YOLO11-M backbone with FPN. Designed with a configurable system allowing seamless switching between Weighted BCE and Asymmetric Focal Loss via YAML to handle class imbalance. Features two-phase fine-tuning, mixed precision training, and ONNX/TensorRT export.",
         technologies: ["PyTorch", "YOLO11-M", "Asymmetric Focal Loss", "ONNX/TensorRT", "Mixed Precision (BF16)", "Ultralytics"],
         achievements: ["Macro AUROC ~0.82–0.88 (40 pathologies)", "40 independent binary classifier heads", "Configurable loss strategies (BCE/Focal)"]
+      },
+      {
+        title: "Automated CXR Quality-Control Pipeline",
+        description: "Quality-gate pipeline for detecting suboptimal chest X-rays before they enter the diagnostic queue. Combines a fleet of multiclass quality classifiers with OR-aggregation logic for higher failure sensitivity, plus a Gemini-based structured QC layer that consumes DICOM metadata and PNG renders to extract exposure, artifacts, cropping, rotation, flipping, mobile-capture, age-group, and overall-quality verdicts under strict JSON schemas. Includes deterministic field-validation and QC-label mapping for downstream parsing reliability.",
+        technologies: ["PyTorch", "Multiclass Classifiers", "Gemini 2.5 Flash", "Gemini 3 Flash Preview", "DICOM", "JSON Schema", "Prompt Engineering"],
+        achievements: ["OR-aggregation across multiclass + per-class models", "Strict JSON-constrained QC validation (8 fields)", "Benchmarked Gemini 2.5 Flash vs 3 Flash Preview", "Reliable metadata extraction (modality, body part, side, study ID, age, sex)", "Surfaced operational gaps in exposure / cropping / latency for deployment"]
       }
     ],
     "Medical Imaging - Vision-Language Models": [
@@ -117,10 +128,12 @@ interface Project {
         achievements: ["Osteoarthritis grading (0-4)", "Post-operative implant detection", "AP vs Lateral orientation"]
       },
       {
-        title: "CXR Analysis System",
-        description: "Core orchestration and deployment infrastructure for chest X-ray analysis suite. Unified Model Registry with multi-model inference and report generation.",
-        technologies: ["FastAPI", "Docker", "Docker Compose", "PyTorch", "Structlog", "YAML"],
-        achievements: ["Dynamic model loading", "GPU support", "Production-ready containerization"]
+        title: "CXR Analysis Suite — Desktop + Web Deployments",
+        description: "End-to-end productionized CXR diagnostic system, evolved from a single inference backend into a four-component product (CXR inference, orchestrator, React frontend, packaging) shipped as both a Windows desktop installer and a Linux web deployment. Modular DB-driven inference replaced the original flat-file monolith with four packages (pathologies, malposition, reporting, security), RAM-adaptive model management, hot-reload of thresholds via DB watcher, persistent SQLite-backed CXR queue with stuck-process detection, SSE streaming with a /health state machine, rotation-aware tiered CTR clinical decision logic, AES-256 streaming model decryption, and a per-detection feedback + analytics layer with cloud sync. Windows track ships via Electron + PyInstaller frozen builds, install-time model decryption, ProgramData-anchored logging, network precheck wizard, and an admin-aware auto-updater with tiered mandatory-grace policy. Linux track runs behind nginx + certbot, systemd-supervised services, Firebase auth with email-domain allowlist, and an aggregated health endpoint.",
+        technologies: ["Python", "FastAPI", "PyTorch", "SQLite", "asyncio", "Electron", "PyInstaller", "Inno Setup", "React", "TypeScript", "Tailwind", "nginx", "systemd", "Firebase Auth", "Docker", "AES-256", "SSE Streaming"],
+        achievements: ["Cross-platform deployment (Windows installer + Linux web)", "40+ pathologies & 16+ supportive devices, rich per-detection output (mask polygons, anatomy overlays, CTR)", "Persistent CXR queue with 300s warn / 600s restart stuck-monitor", "Rotation-aware tiered CTR decision table (clavicle–spinous asymmetry)", "Per-detection feedback + milestone surveys with cloud sync", "Offline MAIRA loading via bundled HF config (no runtime HF Hub calls)"],
+        showcaseUrl: "https://bpl-bionic-demo.5cn.co.in/",
+        featured: true
       },
       // {
       //   title: "Radiologist Workflow Dashboard",
@@ -139,7 +152,7 @@ interface Project {
         description: "Comprehensive ICU-focused chest X-ray analysis system detecting critical pathologies and device malpositions. Includes live inference backend with FastAPI and interactive 3D web showcase for conference demonstration.",
         technologies: ["PyTorch", "YOLOv8/YOLOv11", "EfficientDet", "RF-DETR", "FastAPI", "HTML5", "CSS3", "JavaScript", "Docker"],
         achievements: ["Multi-pathology detection (ICU conditions)", "Medical device malposition checks", "Structured JSON + clinical reports"],
-        showcaseUrl: "https://icudemo.etiqueta.cubebase.ai/"
+        showcaseUrl: "https://bpl-bionic-demo.5cn.co.in/"
       },
       {
         title: "CXR Suite",
